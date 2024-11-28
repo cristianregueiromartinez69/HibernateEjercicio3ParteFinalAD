@@ -28,6 +28,16 @@ public class Pokemon {
     @JoinColumn(name = "adestrador")
     private Adestrador adestrador;
 
+    public Pokemon(String nome, LocalDate nacemento, Pokedex pokedexentry, Adestrador adestrador) {
+        this.nome = nome;
+        this.nacemento = nacemento;
+        this.pokedexentry = pokedexentry;
+        this.adestrador = adestrador;
+    }
+
+    public Pokemon() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -68,4 +78,13 @@ public class Pokemon {
         this.adestrador = adestrador;
     }
 
+    @Override
+    public String toString() {
+        return "Pokemon: " +
+                "\nid: " + id +
+                "\nnome: " + nome +
+                "\nnacemento: " + nacemento +
+                "\npokedexentry: " + pokedexentry +
+                "\nadestrador=" + adestrador;
+    }
 }

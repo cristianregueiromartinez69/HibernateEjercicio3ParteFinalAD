@@ -67,6 +67,12 @@ public class Pokedex {
         this.misc = misc;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Pokedex: " +
+                "\nid: " + id +
+                "\nnome: " + nome +
+                "\npeso: " + peso +
+                "\nmisc: " + misc;
+    }
 }

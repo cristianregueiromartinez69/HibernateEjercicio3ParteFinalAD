@@ -56,6 +56,11 @@ public class Adestrador {
         this.nacemento = nacemento;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Adestrador: " +
+                "\nid: " + id +
+                "\nnome: " + nome +
+                "\nnacemento: " + nacemento;
+    }
 }
