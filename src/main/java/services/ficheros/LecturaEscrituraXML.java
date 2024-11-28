@@ -1,4 +1,4 @@
-package services;
+package services.ficheros;
 
 public class LecturaEscrituraXML {
 }

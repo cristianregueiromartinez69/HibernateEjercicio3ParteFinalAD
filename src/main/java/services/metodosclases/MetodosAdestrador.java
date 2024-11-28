@@ -1,4 +1,4 @@
-package services;
+package services.metodosclases;
 
 import models.Adestrador;
 
@@ -20,5 +20,11 @@ public class MetodosAdestrador {
         adestradores.add(ad2);
 
         return adestradores;
+    }
+
+    public void listarAdestradores(List<Adestrador> adestradores){
+        for(Adestrador ad : adestradores){
+            System.out.println(ad);
+        }
     }
 }

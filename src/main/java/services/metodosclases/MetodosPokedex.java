@@ -1,4 +1,4 @@
-package services;
+package services.metodosclases;
 
 import models.Pokedex;
 
@@ -33,5 +33,11 @@ public class MetodosPokedex {
         pokemons.add(pokedex10);
 
         return pokemons;
+    }
+
+    public void listarPokemonsFromPokedex(List<Pokedex> pokemons) {
+        for(Pokedex pokedex : pokemons) {
+            System.out.println(pokedex);
+        }
     }
 }

@@ -20,11 +20,11 @@ public class Pokemon {
     @Column(name = "nacemento")
     private LocalDate nacemento;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pokedexentry")
     private Pokedex pokedexentry;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "adestrador")
     private Adestrador adestrador;
 
