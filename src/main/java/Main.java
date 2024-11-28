@@ -52,6 +52,7 @@ public class Main {
         //metodosPokedex.listarPokemonsFromPokedex(crud.getPokedexFromDB());
         //metodosPokemon.listarPokemonFromPokemon(crud.getPokemonFromDB());
 
+        metodosPokedex.auxUpdatePokedexFromDB(lef, crud, path2EntrysPokedex);
 
 
 

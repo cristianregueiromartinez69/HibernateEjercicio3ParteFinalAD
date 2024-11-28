@@ -1,6 +1,8 @@
 package services.metodosclases;
 
 import models.entitys.Pokedex;
+import services.cruddb.Crud;
+import services.ficheros.LecturaEscrituraFicheros;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -39,6 +41,16 @@ public class MetodosPokedex {
         for(Pokedex pokedex : pokemons) {
             System.out.println(pokedex);
         }
+    }
+
+    public void auxUpdatePokedexFromDB(LecturaEscrituraFicheros lef, Crud crud, String path){
+        for(int i = 0; i < lef.lectura2EntradasPokedex(path).size(); i++){
+            crud.updatePokedexFromDB(lef.lectura2EntradasPokedex(path).get(i).getId(),
+                    lef.lectura2EntradasPokedex(path).get(i).getNome(),
+                    lef.lectura2EntradasPokedex(path).get(i).getPeso(),
+                    lef.lectura2EntradasPokedex(path).get(i).getMisc());
+        }
+        System.out.println("Entradas actualizadas correctamente");
     }
 
 
