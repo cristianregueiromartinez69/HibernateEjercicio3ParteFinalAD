@@ -3,56 +3,27 @@ package models.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class PokedexDTO implements Serializable {
+/**
+ * Clase de registro que representa un objeto de transferencia de datos (DTO) para un Pokémon en la Pokedex.
+ * <p>
+ * Esta clase se utiliza para transportar datos de un Pokémon entre diferentes capas de la aplicación,
+ * implementando la interfaz {@link Serializable} para permitir su serialización.
+ *
+ * @param id     Identificador único del Pokémon.
+ * @param nombre Nombre del Pokémon.
+ * @param peso   Peso del Pokémon, representado como un {@link BigDecimal}.
+ * @param misc   Información adicional del Pokémon.
+ * @author cristian
+ * @version 1.0
+ */
+public record PokedexDTO(Integer id, String nombre, BigDecimal peso, String misc) implements Serializable {
 
-    private Integer id;
-    private String nombre;
-    private BigDecimal peso;
-    private String misc;
 
-    public PokedexDTO(Integer id, String nombre, BigDecimal peso, String misc) {
-        this.id = id;
-        this.nombre = nombre;
-        this.peso = peso;
-        this.misc = misc;
-    }
-
-    public PokedexDTO() {
-
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public BigDecimal getPeso() {
-        return peso;
-    }
-
-    public void setPeso(BigDecimal peso) {
-        this.peso = peso;
-    }
-
-    public String getMisc() {
-        return misc;
-    }
-
-    public void setMisc(String misc) {
-        this.misc = misc;
-    }
-
+    /**
+     * Representación en forma de cadena del objeto {@code PokedexDTO}.
+     *
+     * @return Cadena con los detalles del objeto {@code PokedexDTO}, formateada en varias líneas.
+     */
     @Override
     public String toString() {
         return "PokedexDTO: " +

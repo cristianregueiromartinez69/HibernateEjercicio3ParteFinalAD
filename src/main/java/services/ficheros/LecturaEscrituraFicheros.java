@@ -44,7 +44,7 @@ public class LecturaEscrituraFicheros {
         PokedexDTO pokedexDTO;
 
         while((pokedexDTO = (PokedexDTO) ois.readObject()) != null){
-            pokedexList.add(new Pokedex(pokedexDTO.getId(), pokedexDTO.getNombre(), pokedexDTO.getPeso(), pokedexDTO.getMisc()));
+            pokedexList.add(new Pokedex(pokedexDTO.id(), pokedexDTO.nombre(), pokedexDTO.peso(), pokedexDTO.misc()));
         }
     }
 
