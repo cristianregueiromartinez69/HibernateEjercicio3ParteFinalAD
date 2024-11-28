@@ -1,6 +1,8 @@
 package services.metodosclases;
 
 import models.entitys.Adestrador;
+import services.cruddb.Crud;
+import services.ficheros.LecturaEscrituraXML;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,5 +28,14 @@ public class MetodosAdestrador {
         for(Adestrador ad : adestradores){
             System.out.println(ad);
         }
+    }
+
+    public void auxUpdateAdestradoresDB(LecturaEscrituraXML xml, Crud crud, String path){
+        for(int i = 0; i < xml.getAdestradoresFromXML(path).size(); i++){
+            crud.updateAdestradoresFromDB(xml.getAdestradoresFromXML(path).get(i).getId(),
+                    xml.getAdestradoresFromXML(path).get(i).getNome(),
+                    xml.getAdestradoresFromXML(path).get(i).getNacemento());
+        }
+        System.out.println("Adestradores actualizados con éxito");
     }
 }
