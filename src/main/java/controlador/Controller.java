@@ -25,6 +25,7 @@ public class Controller {
 
         Crud crud = new Crud();
 
+
         List<Pokedex> pokedexList = metodosPokedex.getPokemonsList();
         List<Adestrador> adestradorList = metodosAdestrador.getAdestradoresList();
 
@@ -44,11 +45,18 @@ public class Controller {
 
         lefXML.writeXMLFile2EntradasAdestrador(crud.getAdestradoresFromDB(), "adestradores.xml");
 
-        crud.updateAdestradoresFromDB(3, "liko", LocalDate.of(2022, 4, 10));
-        crud.updateAdestradoresFromDB(4, "polo", LocalDate.of(2010, 9, 25));
+        crud.updateAdestradoresFromDB(1, "liko", LocalDate.of(2022, 4, 10));
+        crud.updateAdestradoresFromDB(2, "polo", LocalDate.of(2010, 9, 25));
 
-        crud.updatePokedexFromDB(11, "nidoking", BigDecimal.valueOf(62.0), "cornudo");
-        crud.updatePokedexFromDB(12, "vaporeon", BigDecimal.valueOf(29.0), "sireno");
+        crud.updatePokedexFromDB(1, "nidoking", BigDecimal.valueOf(62.0), "cornudo");
+        crud.updatePokedexFromDB(2, "vaporeon", BigDecimal.valueOf(29.0), "sireno");
+
+        crud.updatePokemonsFromDB(1, "annihilape", LocalDate.of(2021, 2, 25));
+        crud.updatePokemonsFromDB(2, "alomomola", LocalDate.of(2013, 4, 12));
+        crud.updatePokemonsFromDB(3, "excadrill", LocalDate.of(2016, 12, 1));
+        crud.updatePokemonsFromDB(4, "greninja", LocalDate.of(2018, 9, 13));
+
+
 
         metodosAdestrador.listarAdestradores(crud.getAdestradoresFromDB());
         metodosPokedex.listarPokemonsFromPokedex(crud.getPokedexFromDB());

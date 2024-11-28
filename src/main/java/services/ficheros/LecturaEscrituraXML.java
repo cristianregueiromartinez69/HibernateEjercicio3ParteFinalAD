@@ -11,8 +11,22 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que gestiona la lectura y escritura de archivos XML relacionados con la entidad {@link models.entitys.Adestrador}.
+ * Permite almacenar y recuperar objetos de tipo {@link Adestrador} en formato XML.
+ * @author cristian
+ * @version 1.0
+ */
+
 public class LecturaEscrituraXML {
 
+    /**
+     * Escribe las primeras dos entradas de una lista de objetos {@link Adestrador} en un archivo XML.
+     * Si el archivo no existe, se crea uno nuevo.
+     *
+     * @param adestradoresList la lista de objetos {@link Adestrador} a escribir en el archivo XML.
+     * @param path             la ruta del archivo XML donde se escribirán los datos.
+     */
     public void writeXMLFile2EntradasAdestrador(List<Adestrador> adestradoresList, String path){
 
         XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newInstance();
@@ -23,20 +37,20 @@ public class LecturaEscrituraXML {
             xmlStreamWriter.writeCharacters("\n");
             xmlStreamWriter.writeStartElement("adestradores");
 
-            for(int i = 0; i < adestradoresList.size(); i++){
+            for (Adestrador adestrador : adestradoresList) {
                 xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("adestrador");
                 xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("id");
-                xmlStreamWriter.writeCharacters(String.valueOf(adestradoresList.get(i).getId()));
+                xmlStreamWriter.writeCharacters(String.valueOf(adestrador.getId()));
                 xmlStreamWriter.writeEndElement();
                 xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("nombre");
-                xmlStreamWriter.writeCharacters(adestradoresList.get(i).getNome());
+                xmlStreamWriter.writeCharacters(adestrador.getNome());
                 xmlStreamWriter.writeEndElement();
                 xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeStartElement("fechaNacimiento");
-                xmlStreamWriter.writeCharacters(String.valueOf(adestradoresList.get(i).getNacemento()));
+                xmlStreamWriter.writeCharacters(String.valueOf(adestrador.getNacemento()));
                 xmlStreamWriter.writeEndElement();
                 xmlStreamWriter.writeCharacters("\n");
                 xmlStreamWriter.writeEndElement();
@@ -54,6 +68,13 @@ public class LecturaEscrituraXML {
         }
     }
 
+    /**
+     * Lee un archivo XML y recupera una lista de objetos {@link Adestrador}.
+     * Convierte cada entrada en el archivo XML en un objeto {@link Adestrador}.
+     *
+     * @param path la ruta del archivo XML que contiene los datos de los adestradores.
+     * @return una lista de objetos {@link Adestrador} recuperados del archivo XML.
+     */
     public List<Adestrador> getAdestradoresFromXML(String path){
         List<Adestrador> adestradoresList = new ArrayList<>();
 

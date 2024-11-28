@@ -12,8 +12,22 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Clase Crud que proporciona métodos para realizar operaciones CRUD
+ * (Crear, Leer, Actualizar, Eliminar) en una base de datos.
+ *
+ * Utiliza JPA para gestionar entidades relacionadas con Pokémon,
+ * Entrenadores (Adestradores) y la Pokedex.
+ * @author cristian
+ * @version 1.0
+ */
 public class Crud {
 
+    /**
+     * Inserta una lista de 10 entradas en la tabla "Pokedex".
+     *
+     * @param pokedexList Lista de objetos Pokedex a insertar en la base de datos.
+     */
     public void insertar10PokemonsPokedex(List<Pokedex> pokedexList){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -32,6 +46,11 @@ public class Crud {
         }
     }
 
+    /**
+     * Inserta una lista de 2 entrenadores en la tabla "Adestrador".
+     *
+     * @param adestradorList Lista de objetos Adestrador a insertar en la base de datos.
+     */
     public void insertar2Adestradores(List<Adestrador> adestradorList){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -48,6 +67,11 @@ public class Crud {
         }
     }
 
+    /**
+     * Inserta una lista de 12 Pokémon en la tabla "Pokemon".
+     *
+     * @param pokemonList Lista de objetos Pokemon a insertar en la base de datos.
+     */
     public void insertar12PokemonsPokemon(List<Pokemon> pokemonList){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -66,6 +90,11 @@ public class Crud {
         }
     }
 
+    /**
+     * Obtiene una lista de todos los entrenadores (Adestradores) almacenados en la base de datos.
+     *
+     * @return Lista de objetos Adestrador recuperados.
+     */
     public List<Adestrador> getAdestradoresFromDB(){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -85,6 +114,11 @@ public class Crud {
         return adestradores;
     }
 
+    /**
+     * Obtiene una lista de todas las entradas de la Pokedex almacenadas en la base de datos.
+     *
+     * @return Lista de objetos Pokedex recuperados.
+     */
     public List<Pokedex> getPokedexFromDB(){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -104,6 +138,11 @@ public class Crud {
         return pokedexList;
     }
 
+    /**
+     * Obtiene una lista de todos los Pokémon almacenados en la base de datos.
+     *
+     * @return Lista de objetos Pokemon recuperados.
+     */
     public List<Pokemon> getPokemonFromDB(){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -122,6 +161,14 @@ public class Crud {
         return pokemonList;
     }
 
+    /**
+     * Actualiza una entrada en la tabla "Pokedex" con nuevos valores.
+     *
+     * @param id        Identificador único de la entrada a actualizar.
+     * @param newNome   Nuevo nombre para la entrada.
+     * @param newPeso   Nuevo peso para la entrada.
+     * @param newMisc   Nueva información adicional para la entrada.
+     */
     public void updatePokedexFromDB(Integer id, String newNome, BigDecimal newPeso, String newMisc){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -144,6 +191,13 @@ public class Crud {
         }
     }
 
+    /**
+     * Actualiza una entrada en la tabla "Adestrador" con nuevos valores.
+     *
+     * @param id            Identificador único del entrenador a actualizar.
+     * @param newNome       Nuevo nombre para el entrenador.
+     * @param newNacemento  Nueva fecha de nacimiento para el entrenador.
+     */
     public void updateAdestradoresFromDB(Integer id, String newNome, LocalDate newNacemento){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -165,6 +219,13 @@ public class Crud {
         }
     }
 
+    /**
+     * Actualiza una entrada en la tabla "Pokemon" con nuevos valores.
+     *
+     * @param id            Identificador único del Pokémon a actualizar.
+     * @param newNome       Nuevo nombre para el Pokémon.
+     * @param newNacemento  Nueva fecha de nacimiento para el Pokémon.
+     */
     public void updatePokemonsFromDB(Integer id, String newNome, LocalDate newNacemento){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
@@ -186,6 +247,11 @@ public class Crud {
         }
     }
 
+    /**
+     * Borra datos de tablas utilizando una consulta nativa.
+     *
+     * @param query Consulta SQL nativa para realizar la operación de eliminación.
+     */
     public void deleteDataTables(String query){
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager em = managerFactory.createEntityManager();
