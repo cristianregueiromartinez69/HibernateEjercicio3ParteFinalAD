@@ -1,11 +1,9 @@
-package models;
+package models.entitys;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDate;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "adestrador")
@@ -22,6 +20,11 @@ public class Adestrador {
     @Column(name = "nacemento")
     private LocalDate nacemento;
 
+    public Adestrador(Integer id, String nome, LocalDate nacemento) {
+        this.id = id;
+        this.nome = nome;
+        this.nacemento = nacemento;
+    }
 
     public Adestrador(String nome, LocalDate nacemento) {
         this.nome = nome;

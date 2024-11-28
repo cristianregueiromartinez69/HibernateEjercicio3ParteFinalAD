@@ -1,4 +1,4 @@
-package models;
+package models.entitys;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -27,6 +27,14 @@ public class Pokemon {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "adestrador")
     private Adestrador adestrador;
+
+    public Pokemon(Integer id, String nome, LocalDate nacemento, Pokedex pokedexentry, Adestrador adestrador) {
+        this.id = id;
+        this.nome = nome;
+        this.nacemento = nacemento;
+        this.pokedexentry = pokedexentry;
+        this.adestrador = adestrador;
+    }
 
     public Pokemon(String nome, LocalDate nacemento, Pokedex pokedexentry, Adestrador adestrador) {
         this.nome = nome;

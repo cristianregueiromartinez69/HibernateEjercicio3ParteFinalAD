@@ -1,6 +1,6 @@
 package services.metodosclases;
 
-import models.Pokedex;
+import models.entitys.Pokedex;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -40,4 +40,6 @@ public class MetodosPokedex {
             System.out.println(pokedex);
         }
     }
+
+
 }

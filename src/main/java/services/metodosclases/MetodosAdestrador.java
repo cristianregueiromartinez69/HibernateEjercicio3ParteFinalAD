@@ -1,6 +1,6 @@
 package services.metodosclases;
 
-import models.Adestrador;
+import models.entitys.Adestrador;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

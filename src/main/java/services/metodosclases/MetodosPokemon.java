@@ -1,8 +1,8 @@
 package services.metodosclases;
 
-import models.Adestrador;
-import models.Pokedex;
-import models.Pokemon;
+import models.entitys.Adestrador;
+import models.entitys.Pokedex;
+import models.entitys.Pokemon;
 import services.cruddb.Crud;
 
 import java.time.LocalDate;

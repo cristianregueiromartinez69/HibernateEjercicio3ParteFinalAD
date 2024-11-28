@@ -1,11 +1,9 @@
-package models;
+package models.entitys;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "pokedex")
@@ -24,6 +22,13 @@ public class Pokedex {
 
     @Column(name = "misc", length = Integer.MAX_VALUE)
     private String misc;
+
+    public Pokedex(Integer id, String nome, BigDecimal peso, String misc) {
+        this.id = id;
+        this.nome = nome;
+        this.peso = peso;
+        this.misc = misc;
+    }
 
     public Pokedex(String nome, BigDecimal peso, String misc) {
         this.nome = nome;

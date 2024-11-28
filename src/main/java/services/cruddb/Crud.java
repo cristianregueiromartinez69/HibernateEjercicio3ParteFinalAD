@@ -4,10 +4,12 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import models.Adestrador;
-import models.Pokedex;
-import models.Pokemon;
+import models.entitys.Adestrador;
+import models.entitys.Pokedex;
+import models.entitys.Pokemon;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Crud {
@@ -119,6 +121,72 @@ public class Crud {
         }
         return pokemonList;
     }
+
+    public void updatePokedexFromDB(Integer id, String newNome, BigDecimal newPeso, String newMisc){
+        EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = managerFactory.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        try(managerFactory; em){
+            tx.begin();
+
+            Pokedex pokedex = em.find(Pokedex.class, id);
+
+            if(pokedex != null){
+                pokedex.setNome(newNome);
+                pokedex.setPeso(newPeso);
+                pokedex.setMisc(newMisc);
+            }
+            System.out.println("Entrada de la pokedex actualizada con éxito");
+            tx.commit();
+
+            if(tx.isActive()) tx.rollback();
+        }
+    }
+
+    public void updateAdestradoresFromDB(Integer id, String newNome, LocalDate newNacemento){
+        EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = managerFactory.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        try(managerFactory; em){
+            tx.begin();
+
+            Adestrador adestrador = em.find(Adestrador.class, id);
+
+            if(adestrador != null){
+                adestrador.setNome(newNome);
+                adestrador.setNacemento(newNacemento);
+            }
+            System.out.println("Entrada de adestrador actualizada con éxito");
+            tx.commit();
+
+            if(tx.isActive()) tx.rollback();
+        }
+    }
+
+    public void updatePokemonsFromDB(Integer id, String newNome, LocalDate newNacemento){
+        EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = managerFactory.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        try(managerFactory; em){
+            tx.begin();
+
+            Pokemon pokemon = em.find(Pokemon.class, id);
+
+            if(pokemon != null){
+                pokemon.setNome(newNome);
+                pokemon.setNacemento(newNacemento);
+            }
+            System.out.println("Entrada de pokemon actualizada con éxito");
+            tx.commit();
+
+            if(tx.isActive()) tx.rollback();
+        }
+    }
+
+
 
 
 
