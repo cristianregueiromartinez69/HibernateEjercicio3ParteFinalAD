@@ -13,5 +13,7 @@ public class Main {
         List<Pokedex> pokedexList = metodosPokedex.getPokemonsList();
         crud.insertar10Pokemons(pokedexList);
 
+
+
     }
 }

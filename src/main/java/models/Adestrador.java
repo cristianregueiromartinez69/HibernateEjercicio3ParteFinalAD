@@ -23,6 +23,15 @@ public class Adestrador {
     private LocalDate nacemento;
 
 
+    public Adestrador(String nome, LocalDate nacemento) {
+        this.nome = nome;
+        this.nacemento = nacemento;
+    }
+
+    public Adestrador() {
+
+    }
+
     public Integer getId() {
         return id;
     }
