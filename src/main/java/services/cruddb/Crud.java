@@ -186,6 +186,24 @@ public class Crud {
         }
     }
 
+    public void deleteDataTables(String query){
+        EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = managerFactory.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        try(managerFactory; em){
+            tx.begin();
+
+            int deleteCount = em.createNativeQuery(query).executeUpdate();
+
+            tx.commit();
+            if(deleteCount > 0){
+                System.out.println("Se han borrado los datos de las tablas correctamente");
+            }
+            if(tx.isActive()) tx.rollback();
+        }
+    }
+
 
 
 
