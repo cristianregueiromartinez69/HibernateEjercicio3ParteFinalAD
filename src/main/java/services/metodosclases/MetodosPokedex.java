@@ -8,8 +8,20 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que contiene métodos auxiliares relacionados con la gestión de objetos {@link Pokedex}.
+ * Incluye funcionalidades para crear listas de pokemons, listar los pokemons y
+ * actualizar la base de datos a partir de un archivo de texto.
+ * @author cristian
+ * @version 1.0
+ */
 public class MetodosPokedex {
 
+    /**
+     * Crea y devuelve una lista de pokemons predefinidos con sus respectivos atributos.
+     *
+     * @return una lista de objetos {@link Pokedex}.
+     */
     public List<Pokedex> getPokemonsList() {
         List<Pokedex> pokemons = new ArrayList<>();
         Pokedex pokedex1 = new Pokedex("pikachu", BigDecimal.valueOf(6.0), "rata hepatítica");
@@ -37,12 +49,25 @@ public class MetodosPokedex {
         return pokemons;
     }
 
+    /**
+     * Lista los pokemons de una colección dada imprimiéndolos en consola.
+     *
+     * @param pokemons la lista de objetos {@link Pokedex} a listar.
+     */
     public void listarPokemonsFromPokedex(List<Pokedex> pokemons) {
         for(Pokedex pokedex : pokemons) {
             System.out.println(pokedex);
         }
     }
 
+    /**
+     * Actualiza las entradas de la pokedex en la base de datos a partir de un archivo de texto.
+     * Para cada entrada en el archivo, se realiza una actualización en la base de datos.
+     *
+     * @param lef   una instancia de {@link LecturaEscrituraFicheros} para leer los datos del archivo de texto.
+     * @param crud  una instancia de {@link Crud} para realizar las actualizaciones en la base de datos.
+     * @param path  la ruta del archivo de texto que contiene los datos de la pokedex.
+     */
     public void auxUpdatePokedexFromDB(LecturaEscrituraFicheros lef, Crud crud, String path){
         for(int i = 0; i < lef.lectura2EntradasPokedex(path).size(); i++){
             crud.updatePokedexFromDB(lef.lectura2EntradasPokedex(path).get(i).getId(),

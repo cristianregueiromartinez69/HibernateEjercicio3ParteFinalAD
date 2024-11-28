@@ -9,8 +9,22 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que contiene métodos auxiliares relacionados con la gestión de objetos {@link Pokemon}.
+ * Proporciona métodos para crear una lista de pokemons con datos de {@link Pokedex} y {@link Adestrador},
+ * y para listar los pokemons en consola.
+ * @author cristian
+ * @version 1.0
+ */
 public class MetodosPokemon {
 
+    /**
+     * Crea y devuelve una lista de pokemons, asociándolos con sus datos de {@link Pokedex} y {@link Adestrador}
+     * desde la base de datos a través de la clase {@link Crud}.
+     *
+     * @param crud la instancia de {@link Crud} para obtener los datos de los adestradores y la pokedex.
+     * @return una lista de objetos {@link Pokemon}.
+     */
     public List<Pokemon> getPokemonList(Crud crud){
         List<Pokemon> pokemonsList = new ArrayList<>();
 
@@ -47,6 +61,11 @@ public class MetodosPokemon {
         return pokemonsList;
     }
 
+    /**
+     * Lista los pokemons de una colección dada imprimiéndolos en consola.
+     *
+     * @param pokemonList la lista de objetos {@link Pokemon} a listar.
+     */
     public void listarPokemonFromPokemon(List<Pokemon> pokemonList){
         for(Pokemon pokemon : pokemonList){
             System.out.println(pokemon);
